@@ -1,0 +1,35 @@
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #d4f1c5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#menu h1 { font-size: 2.5em; color: #7f5539; margin-bottom: 20px; }
+#menu button { padding: 15px 40px; font-size: 20px; border: none; border-radius: 20px; background: #ffe4b5; cursor: pointer; }
+#menu button:hover { transform: scale(1.05); transition: transform 0.2s; }
+
+#gameContainer { display: flex; flex-direction: column; align-items: center; }
+#game { display: grid; grid-template-columns: repeat(3, 100px); grid-gap: 15px; margin-top: 20px; position: relative; z-index: 1; }
+.cell { width: 100px; height: 100px; background: #fff2d6; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 48px; cursor: pointer; }
+#reset { margin-top: 20px; padding: 10px 25px; font-size: 18px; border: none; border-radius: 12px; background: #ffe4b5; cursor: pointer; }
+
+#winCanvas { position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1000; }
+#winText { position: absolute; top: 20px; font-size: 2em; color: #333; text-shadow: 2px 2px 5px #fff; z-index: 1001; }
+
+.confetti { position: absolute; border-radius: 50%; pointer-events: none; animation: fall 2s linear forwards; z-index:1002; }
+@keyframes fall { 0% { transform: translateY(0px) rotate(0deg); opacity: 1; } 100% { transform: translateY(400px) rotate(360deg); opacity: 0; } }
+
+footer { position: absolute; bottom: 10px; font-size: 1em; color: #7f5539; }
