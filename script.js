@@ -12,9 +12,15 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const winText = document.getElementById('winText');
 
+const bgMusic = document.getElementById('bgMusic');
+const clickSound = document.getElementById('clickSound');
+const winSound = document.getElementById('winSound');
+
 playBtn.addEventListener('click', () => {
   menu.style.display = 'none';
   gameContainer.style.display = 'flex';
+  bgMusic.volume = 0.3;
+  bgMusic.play();
 });
 
 cells.forEach(cell => {
@@ -23,8 +29,13 @@ cells.forEach(cell => {
     if(board[index] === '') {
       board[index] = turn;
       cell.textContent = turn;
+      clickSound.currentTime = 0;
+      clickSound.play();
+      
       const winLine = checkWin();
       if(winLine) {
+        winSound.currentTime = 0;
+        winSound.play();
         showWin(winLine, turn);
         setTimeout(resetBoard, 2500);
       } else turn = turn === 'X' ? 'O' : 'X';
